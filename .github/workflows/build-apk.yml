@@ -1,0 +1,22 @@
+name: Build Greenperp APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: kivy/buildozer:latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Build APK
+        run: yes | buildozer android debug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: Greenperp-APK
+          path: bin/*.apk
