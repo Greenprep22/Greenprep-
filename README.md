@@ -1,2 +1,0 @@
-# Greenprep-
-Jamb practice exam 
